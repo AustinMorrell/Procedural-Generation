@@ -1,0 +1,10 @@
+﻿  main.cpp
+  Camera.cpp
+c:\users\austin.morrell.aie\desktop\procedural generation\procedural generation\src\camera.cpp(103): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\austin.morrell.aie\desktop\procedural generation\procedural generation\src\camera.cpp(112): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  app.cpp
+  Generating Code...
+  gl_core_4_4.c
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Procedural Generation.vcxproj -> C:\Users\Austin.Morrell.AIE\Desktop\Procedural Generation\Debug\Procedural Generation.exe
+  Procedural Generation.vcxproj -> C:\Users\Austin.Morrell.AIE\Desktop\Procedural Generation\Debug\Procedural Generation.pdb (Partial PDB)
