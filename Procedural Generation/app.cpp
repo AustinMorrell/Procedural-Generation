@@ -120,3 +120,44 @@ std::string ProceduralGeneration::ReadFromFile(std::string text)
 	}
 	return container;
 }
+
+void ProceduralGeneration::createPlane()
+{
+
+
+	int dims = 64;
+	float *perlin_data = new float[dims * dims];
+	float scale = (1.0f / dims) * 3;
+	int octaves = 6;
+	for (int x = 0; x < 64; ++x)
+	{
+		for (int y = 0; y < 64; ++y)
+		{
+			float amplitude = 1.f;
+			float persistence = 0.3f;
+			perlin_data[y * dims.x + x] = 0;
+			for (int o = 0; o < octaves; ++o)
+			{
+				float freq = powf(2, (float)o);
+				float perlin_sample =
+					glm::perlin(vec2((float)x, (float)y) * scale * freq) * 0.5f + 0.5f;
+				perlin_data[y * dims.x + x] += perlin_sample * amplitude;
+				amplitude *= persistence;
+			}
+		}
+	}
+
+	glGenTextures(1, &m_perlin_texture);
+	glBindTexture(GL_TEXTURE_2D, m_perlin_texture);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_R32F, 64, 64, 0, GL_RED, GL_FLOAT, perlin_data);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+}
+
+void ProceduralGeneration::drawPlane()
+{
+	glBindVertexArray(p_vao);
+	glDrawElements(GL_TRIANGLE_STRIP, p_indicesCounter, GL_UNSIGNED_INT, 0);
+}

@@ -33,6 +33,9 @@ public:
 	void destroy() override;
 	std::string ReadFromFile(std::string text);
 
+	void createPlane();
+	void drawPlane();
+
 	double DeltaTime;
 private:
 	glm::mat4 m_projectionViewMatrix;
@@ -41,4 +44,9 @@ private:
 	double pastTime = 0;
 	double newTime;
 	unsigned int m_programID;
+
+	unsigned int p_vao;
+	unsigned int p_vbo;
+	unsigned int p_ibo;
+	int p_indicesCounter;
 };
