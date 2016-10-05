@@ -1,0 +1,12 @@
+﻿  app.cpp
+  Camera.cpp
+src\Camera.cpp(103): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+src\Camera.cpp(112): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  main.cpp
+  gl_core_4_4.c
+  Generating code
+  All 802 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+FBXLoader.lib(FBXFile.obj) : warning LNK4099: PDB 'FBXFix.pdb' was not found with 'FBXLoader.lib(FBXFile.obj)' or at 'C:\Users\Austin.Morrell.AIE\Desktop\Procedural Generation\Release\FBXFix.pdb'; linking object as if no debug info
+  Procedural Generation.vcxproj -> C:\Users\Austin.Morrell.AIE\Desktop\Procedural Generation\Release\Procedural Generation.exe
+  Procedural Generation.vcxproj -> C:\Users\Austin.Morrell.AIE\Desktop\Procedural Generation\Release\Procedural Generation.pdb (Full PDB)

@@ -5,14 +5,13 @@
 #include <math.h>
 #include "FlyCamera.h"
 #include <stb_image.h>
+#include <FBXFile.h>
 #define PI 3.14159265358979323846
 
 struct Vertex
 {
-	float x, y, z, w;
-	float nx, ny, nz, nw;
-	float tx, ty, tz, tw;
-	float s, t;
+	glm::vec4 position;
+	glm::vec2 UV;
 };
 
 class App
@@ -33,7 +32,8 @@ public:
 	void destroy() override;
 	std::string ReadFromFile(std::string text);
 
-	void createPlane();
+	float* generatePerlin(const int &dims);
+	void createPlane(const int &width, const int &height);
 	void drawPlane();
 
 	double DeltaTime;
@@ -45,6 +45,11 @@ private:
 	double newTime;
 	unsigned int m_programID;
 
+	unsigned int m_texture;
+	unsigned int m_rocks;
+	unsigned int m_grass;
+	unsigned int m_gravel;
+	unsigned int m_perlin_texture;
 	unsigned int p_vao;
 	unsigned int p_vbo;
 	unsigned int p_ibo;
